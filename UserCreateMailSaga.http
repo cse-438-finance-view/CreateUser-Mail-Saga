@@ -1,0 +1,6 @@
+@UserCreateMailSaga_HostAddress = http://localhost:5224
+
+GET {{UserCreateMailSaga_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

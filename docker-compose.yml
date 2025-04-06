@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  usercreatemailsaga:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: usercreatemailsaga
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - RabbitMQ__HostName=host.docker.internal
+      - RabbitMQ__Port=5672
+      - RabbitMQ__UserName=guest
+      - RabbitMQ__Password=guest
+      - RabbitMQ__VirtualHost=/
+    networks:
+      - usercreatemailsaga-network
+
+networks:
+  usercreatemailsaga-network:
+    driver: bridge 
